@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Http\Request;
 
 class Post extends Model
 {
@@ -25,8 +26,34 @@ class Post extends Model
 
     }
 
+    public function scopeFilter($query, array $filters){
+
+        $query->when($filters['search'] ?? false, function($query , $search){
+            
+            $query->where('title' ,'like' , '%' . $search . '%')
+                    ->orWhere('language' ,'like' , '%' . $search . '%');
+        });
+        
+        $query->when($filters['catagories'] ?? false, function($query , $catagories){
+            
+            $query->whereAs('catagories' , function($query , $catagories){
+                $query->Where('slug' , $catagories);
+
+            });
+        });
+
+        $query->when($filters['author'] ?? false, function($query , $author){
+            
+            $query->whereAs('author' , function($query , $catagories){
+                $query->Where('username' , $author);
+
+            });
+        });
+
+    }
+
     // public function getRouteKeyName(){
-    //     return Slug;   // return parent::getRouteKeyName();
+    //     return Slug;   // return parent::getRouteKeyName();  
     // }
 }
 

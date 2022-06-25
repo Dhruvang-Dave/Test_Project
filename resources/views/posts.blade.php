@@ -1,4 +1,4 @@
-<link rel="stylesheet" href="app.css">
+{{-- <link rel="stylesheet" href="app.css">
 
 <body>
     @php
@@ -7,7 +7,7 @@
                 <center>
                     <article>
                         <h2>
-                            <a href="/okay/<?= $ok->Slug ?>"><?= $ok->title; ?></a>
+                            <a href="/okay/ $ok->Slug ?>"> $ok->title </a>
                             
                         </h2>
                     
@@ -35,5 +35,26 @@
     @endphp
             
 
-</body>
-{{-- <?= $ok->slug ?> --}}
+</body> --}}
+
+
+
+@extends('components.layout')
+
+
+@section('main-section')
+
+
+    @include('components._post-header')
+
+<main class="max-w-6xl mx-auto mt-6 lg:mt-20 space-y-6">
+    
+    @if ( $okay->count())
+        <x-post-grid :okay="$okay"/>
+        
+    @else
+     <p style="text-align:center">Nothing to show yet.</p>   
+    @endif
+   
+    </div>
+@endsection

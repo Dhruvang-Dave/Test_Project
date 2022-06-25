@@ -6,6 +6,7 @@ use App\Models\catagories;
 use Illuminate\Support\Facades\Route;
 use Spatie\YamlFrontMatter\YamlFrontMatter;
 use App\Http\Controllers\NewController;
+use App\Http\Controllers\PostController;
 
 
 /*
@@ -19,14 +20,7 @@ use App\Http\Controllers\NewController;
 |
 */
 
-Route::get('/', function () {
-
-    $okay = Post::all();
-
-    // dd($okay);
-    return view('/posts', [
-        'okay' => Post::latest()->get()
-    ]);
+Route::get('/allPost', [PostController::class , 'index']); 
 
     // $okay = collect(File::files(resource_path("/post")))
     //     -> map(function ($file){
@@ -63,8 +57,7 @@ Route::get('/', function () {
     //     );
     
     // endforeach;
-    
-});
+
 
 // Route::get('/about', function(){
 //     return view('about');
@@ -74,9 +67,7 @@ Route::get('/', function () {
 //     return view('okay');
 // });
 
-// Route::put('/welcome', function () {
-//     return view('Welcome');
-// });
+Route::get('/', [PostController::class , 'main_page']);
 
 Route::get('/about', 'App\Http\Controllers\NewController@about');
 
@@ -113,19 +104,22 @@ Route::get('/okay/{okay:Slug}', function(Post $okay){
 Route::get('/catagories/{catagories:slug}', function(catagories $catagories){
     // dd( $catagories->posts);
     return view('/posts' , [
-        'okay' => $catagories->posts
+        'okay' => $catagories->posts,
+        'catagories' => catagories::all()
     ]);
 });
 
 
-Route::get('/authors/{author:username}', function(User $author){
-    // dd( $catagories->posts);
-    // dd( $author);
+// Route::get('/authors/{author:username}', function(User $author){
+//     // dd( $catagories->posts);
+//     // dd( $author);
 
-    return view('/posts' , [
-        'okay' => $author->posts
-    ]);
-});
+//     return view('/posts' , [
+//         'okay' => $author->posts,
+//         'catagories' => catagories::all()
+
+//     ]);
+// });
 
 
 // -> where('okay' , '[A-z]+');
