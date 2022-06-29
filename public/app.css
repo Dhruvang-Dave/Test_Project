@@ -1,0 +1,18 @@
+h2{
+    text-decoration: none;
+    color: blue;
+}
+
+body{
+    max-width: 600px;
+    margin: auto;
+    color: #222222;
+}
+
+.float-right{
+    text-align: right;
+}
+
+.float-left{
+    text-align: left;
+}
