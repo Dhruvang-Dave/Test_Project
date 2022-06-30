@@ -16,7 +16,7 @@
 <body>
     <h1>
        <center>
-        About page 
+        About page    
        </center>
     </h1>
 
