@@ -90,4 +90,4 @@ Route::post('/okay/{okay:Slug}/comments' , [PostCommentsController::class , 'sto
 
 Route::get('/admin/posts/create' , [PostController::class , 'create'])->middleware('admin');
 
-Route::post('/admin/posts' , [PostController::class , 'store'])->middleware('admin');
+Route::post('/admin/posts' , [PostController::class , 'store'])->middleware('admin');  
