@@ -58,24 +58,8 @@
 
                 <section class="col-span-8 col-start-5 space-y-6">
                 
-                <form action="/okay/{{ $okay->Slug }}/comments" method="post" class="border border-gray-300 p-6 rounded-xl">
-                    @csrf
-                    <header class="flex items-center">
-                        <img src="https://i.pravatar.cc/60?u={{ auth()->id() }}" alt="" class="m-2 rounded-full" width="50" height="50">
- 
+                @include('components._add-comment-form')
 
-                        <h4 class="ml-5"> Want to participate? </h4>
-                    </header>
-
-                    <div class="my-4">
-
-                    <textarea name="body" class="w-full text-sm p-2" cols="30" rows="5" placeholder="Quick, think something to say..."></textarea>
-                    </div>
-
-                    <div class="flex justify-end border-t border-gray-300">
-                        <button type="submit" class="bg-blue-500 border border-blue-300 rounded-2xl text-white px-12 py-2 mt-2 hover:bg-blue-600"> Post</button>
-                    </div>
-                </form>
                    @foreach ( $okay->comments as $comment)
                         <x-post-comment :comment="$comment"/>
                    @endforeach

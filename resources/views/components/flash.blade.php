@@ -1,5 +1,3 @@
-props([''])
-
 @if(session()->has('success'))
         <DIV x-data="{show:true}"
         x-init="setTimeout(() => show:false , 400000000)"

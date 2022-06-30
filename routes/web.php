@@ -22,6 +22,35 @@ use App\Http\Controllers\PostCommentsController;
 |
 */
 
+Route::post('newsletter', function(){
+    request() ->  validate([
+        'email' => 'required | email'
+    ]);
+
+    $mailchimp = new \MailchimpMarketing\ApiClient();
+
+    $mailchimp->setConfig([
+        'apiKey' => config('services.mailchimp.key'),
+        'server' => 'us10'
+    ]);
+
+    try{
+        $response = $mailchimp->lists->addListMember("list_id", [
+        "email_address" => request('emails'),
+        "status" => "unsubscribed",
+        ]);      
+    }
+    catch(Exception $e){
+          throw \Illuminate\Validation\ValidationException::withMessages([
+                'email' => 'This email could not be added'
+          ]);
+    }
+
+    return redirect('/')
+            ->with('success' , 'You are all set for our newsletter');
+
+});
+
 Route::get('/allPost', [PostController::class , 'index']); 
 
 Route::get('/', [PostController::class , 'main_page']);
@@ -58,3 +87,7 @@ Route::get('/login' , [SessionsController::class , 'create'])->middleware('guest
 Route::post('/sessions' , [SessionsController::class , 'store']);
 
 Route::post('/okay/{okay:Slug}/comments' , [PostCommentsController::class , 'store']);
+
+Route::get('/admin/posts/create' , [PostController::class , 'create'])->middleware('admin');
+
+Route::post('/admin/posts' , [PostController::class , 'store'])->middleware('admin');
