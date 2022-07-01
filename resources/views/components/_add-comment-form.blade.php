@@ -2,7 +2,7 @@
                 <form action="/okay/{{ $okay->Slug }}/comments" method="post" class="border border-gray-300 p-6 rounded-xl">
                     @csrf
                     <header class="flex items-center">
-                        <img src="https://i.pravatar.cc/60?u={{ auth()->id() }}" alt="" class="m-2 rounded-full" width="50" height="50">
+                        <img src="/storage/{{ $okay->thumbnail }}" alt="" class="m-2 rounded-full" width="50" height="50">
  
 
                         <h4 class="ml-5"> Want to participate? </h4>

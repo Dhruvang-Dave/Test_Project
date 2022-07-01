@@ -62,7 +62,7 @@ Route::get('/about', 'App\Http\Controllers\NewController@about');
 Route::get('/okay/{okay:Slug}', function(Post $okay){
 
     return view('okay', [
-        'okay' => $okay->load('catagories')
+        'okay' => $okay->load('catagories'),
     ]);   
 });
 

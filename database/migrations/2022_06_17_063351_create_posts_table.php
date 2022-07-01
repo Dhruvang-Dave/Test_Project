@@ -18,7 +18,7 @@ return new class extends Migration
             $table->foreignId('catagories_id');
             $table->foreignId('user_id')->constrained()->cascadeOnDelete();
             $table->text('Slug')->unique();
-            $table->string('thumbnail')->nullable();
+            $table->string('thumbnail')->default('illustration-1.png');
             $table->string('title');
             $table->text('language');
             $table->text('body');

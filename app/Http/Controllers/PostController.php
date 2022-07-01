@@ -56,7 +56,7 @@ class PostController extends Controller
         $attributes = request()->validate([
             'title' => 'required',
             'slug' =>  ['required' , Rule::unique('posts' , 'Slug')],
-            'thumbnail' => 'required|image',
+            'thumbnail' => 'image',
             // 'slug' =>  'required | unique:posts,Slug',
             'language' => 'required',
             'body' => 'required',
@@ -64,9 +64,15 @@ class PostController extends Controller
         ]);
         
         $attributes['user_id'] = auth()->id();
-        $thumbnailPath = request()->file('thumbnail')->store('thumbnail');
+        // dd( request()->thumbnail );
+        if( request()->thumbnail ){
+            $thumbnailPath = request()->file('thumbnail')->store('thumbnail');
+        }
+        else{
+            $thumbnailPath = 'illustration-1.png';
+        }
 
-        $attributes['thumbnail'] = $thumbnailPath; 
+        $attributes['thumbnail'] = $thumbnailPath;   
         Post::create($attributes);
         //  $post = new Post();
         //  $post->title = $attributes['title'];

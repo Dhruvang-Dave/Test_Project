@@ -42,9 +42,6 @@
                             
                             <input type="file" name="thumbnail" id="thumbnail" class="border border-gray-400 p-2 w-full">
                           </div>
-                        @error('thumbnail')
-                            <p class="text-red-500 text-xs mt-1">{{ $message }}</p>
-                        @enderror
                   </div>
 
                   <!-- language -->
