@@ -52,8 +52,9 @@
     @if ( $okay->count())
         <x-post-grid :okay="$okay"/>
         
-        
-        {{ $okay->links() }}
+
+        {!! $okay->links() !!}
+
 
     @else
      <p style="text-align:center">Nothing to show yet.</p>   

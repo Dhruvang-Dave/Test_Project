@@ -34,13 +34,15 @@ Route::post('newsletter', function(){
         'server' => 'us10'
     ]);
 
+    // dd(request('email'));
     try{
-        $response = $mailchimp->lists->addListMember("list_id", [
-        "email_address" => request('emails'),
-        "status" => "unsubscribed",
+        $response = $mailchimp->lists->addListMember("398c6d4ccb", [
+        "email_address" => request('email'),
+        "status" => "subscribed",
         ]);      
     }
     catch(Exception $e){
+        dd($e);
           throw \Illuminate\Validation\ValidationException::withMessages([
                 'email' => 'This email could not be added'
           ]);
@@ -90,4 +92,4 @@ Route::post('/okay/{okay:Slug}/comments' , [PostCommentsController::class , 'sto
 
 Route::get('/admin/posts/create' , [PostController::class , 'create'])->middleware('admin');
 
-Route::post('/admin/posts' , [PostController::class , 'store'])->middleware('admin');  
+Route::post('/admin/posts' , [PostController::class , 'store'])->middleware('admin');

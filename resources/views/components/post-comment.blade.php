@@ -2,7 +2,7 @@
 
 <article class="flex bg-gray-200 border border-gray-300 p-3 space-x-3 rounded-xl">
     <div class="flex-shrink-0">
-        <img src="https://i.pravatar.cc/100?u={{$comment->user_id}}" alt="" class="m-2 rounded-xl" width="60" height="60">
+        <img src="/storage/{{ $okay->thumbnail }}" alt="" class="m-2 rounded-xl" width="60" height="60">
     </div>
     <div class="p-1">
         <header class="mb-2">
