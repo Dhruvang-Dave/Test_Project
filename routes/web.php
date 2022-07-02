@@ -10,6 +10,7 @@ use App\Http\Controllers\PostController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\SessionsController;
 use App\Http\Controllers\PostCommentsController;
+use App\Http\Controllers\AdminController;
 
 /*
 |--------------------------------------------------------------------------
@@ -59,12 +60,7 @@ Route::get('/', [PostController::class , 'main_page']);
 
 Route::get('/about', 'App\Http\Controllers\NewController@about');
 
-Route::get('/okay/{okay:Slug}', function(Post $okay){
-
-    return view('okay', [
-        'okay' => $okay->load('catagories'),
-    ]);   
-});
+Route::get('/okay/{okay:Slug}', [PostController::class , 'SinglePost']);
 
 Route::get('/catagories/{catagories:slug}', function(catagories $catagories){
     // dd( $catagories->posts);
@@ -82,7 +78,7 @@ Route::get('/register', [RegisterController::class , 'create'])->middleware('gue
 
 Route::post('/register', [RegisterController::class , 'store'])->middleware('guest');
 
-Route::post('/logout' , [SessionsController::class , 'destroy'])->middleware('auth');
+Route::get('/logout' , [SessionsController::class , 'destroy'])->middleware('auth');
 
 Route::get('/login' , [SessionsController::class , 'create'])->middleware('guest');
 
@@ -93,3 +89,7 @@ Route::post('/okay/{okay:Slug}/comments' , [PostCommentsController::class , 'sto
 Route::get('/admin/posts/create' , [PostController::class , 'create'])->middleware('admin');
 
 Route::post('/admin/posts' , [PostController::class , 'store'])->middleware('admin');
+
+Route::get('/admin/posts' , [AdminController::class , 'index'])->middleware('admin');
+
+// ->paginate(2)->getQueryString();

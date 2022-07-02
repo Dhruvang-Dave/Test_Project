@@ -58,4 +58,6 @@
 
    
     </div>
+    {!! $okay->links() !!}  
+</main>    
 @endsection

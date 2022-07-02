@@ -18,8 +18,7 @@
     
     <!--  Category -->
 
-
-        <div class="dropdown relative flex lg:inline-flex items-center bg-gray-100 rounded-xl">
+    <div class="dropdown relative flex lg:inline-flex items-center bg-gray-100 rounded-xl">
         <button class="btn dropdown-toggle" type="button" id="dropdown" data-bs-toggle="dropdown" aria-expanded="false">
             Catagory
         </button>
@@ -31,6 +30,7 @@
             <li><a name="catagories" class="dropdown-item" href="/catagories/{!! ($catagories->slug)!!}">{!! ucwords($catagories->slug)!!}</a></li>
          @endforeach
         <button>
+    </div>
 
         <!-- Other Filters -->
         <div class="relative flex lg:inline-flex items-center bg-gray-100 rounded-xl">

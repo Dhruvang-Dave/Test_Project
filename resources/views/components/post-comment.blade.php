@@ -1,4 +1,4 @@
-@props(['comment'])
+@props(['comment' , 'okay'])
 
 <article class="flex bg-gray-200 border border-gray-300 p-3 space-x-3 rounded-xl">
     <div class="flex-shrink-0">

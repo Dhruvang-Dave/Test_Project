@@ -39,7 +39,7 @@
 
                 <footer class="flex justify-between items-center mt-8">
                     <div class="flex items-center text-sm">
-                        <img src="/images/lary-avatar.svg" alt="Lary avatar">
+                    <img src="https://i.pravatar.cc/150?u={{$okay->catagories}}" alt="Lary avatar" height="60px" width="60px">
                         <div class="ml-3">
                             <a href="/?authors={!! $okay->author->username !!}">
                             <h5 class="font-bold">

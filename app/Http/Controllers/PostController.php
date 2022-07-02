@@ -38,11 +38,10 @@ class PostController extends Controller
         // }
 
         // if( auth()->user()?->username !== 'Dhruvang'){
-
         //     abort(Response::HTTP_FORBIDDEN);
         // }
 
-        return view('/create');
+        return view('admin.posts.create');
     }
 
     public function store(){
@@ -79,8 +78,6 @@ class PostController extends Controller
         //  $post->save();
         // dd($attributes['catagories_id']);
 
-
-
         //  // dd($attributes);
 
         // // $post = new Post();
@@ -96,4 +93,12 @@ class PostController extends Controller
         // }
 
         // return $posts->get();
-    }
+
+        public function SinglePost(Post $okay){
+
+            return view('okay', [
+                // Post::latest()->paginate(),
+                'okay' => $okay
+            ]);
+        }
+}

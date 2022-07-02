@@ -16,7 +16,7 @@
             <div class="mb-6">
                 <label for="email" class="block mb-2 uppercase font-bold text-s">Email</label>
                 
-              <input type="email" value=" {{old('email') }}" name="email" id="email" class="border border-gray-400 p-2 w-full">
+              <input type="email" value=" {{old('email') }}" autocomplete="username" name="email" id="email" class="border border-gray-400 p-2 w-full">
             </div>
             @error('email')
                 <p class="text-red-500 text-xs mt-1">{{ $message }}</p>
@@ -25,7 +25,7 @@
             <div class="mb-6">
                 <label for="password" name="password" id="password" class="block mb-2 uppercase font-bold text-s">Password</label>
                 
-              <input type="password" name="password" id="email" class="border border-gray-400 p-2 w-full">
+              <input type="password" name="password" id="email" autocomplete="new-password" class="border border-gray-400 p-2 w-full">
             </div>
             @error('password')
                 <p class="text-red-500 text-xs mt-1">{{ $message }}</p>

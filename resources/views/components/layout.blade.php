@@ -27,11 +27,15 @@
 
             <div class="mt-8 md:mt-0 flex items-center">
                 @auth
-                    <a class="mr-5" href="/register" class="text-xs font-bold uppercase">Welcome {{ auth()->user()-> name }}</a>
-                    <form action="/logout" method="post" class="bg-blue-500 font-xs text-white rounded-xl p-2">
-                    @csrf
-                        <button type="submit">Logout</button>
-                    </form>
+                    <div class="dropdown relative flex lg:inline-flex items-center rounded-xl">
+                    <button class="mr-5 btn dropdown-toggle" name="category" type="button" id="dropdown" data-bs-toggle="dropdown" aria-expanded="false" href="/register" class="text-xs font-bold uppercase">Welcome {{ auth()->user()-> name }}</button>
+                        </button>
+                        <ul class="dropdown-menu" value="category" aria-labelledby="dropdown">
+                                        <li><a class="dropdown-item" href="#"></li>
+                            <li><a name="catagories" class="dropdown-item" href="/">Dashboard</a></li>
+                            <li><a name="catagories" class="dropdown-item" href="/admin/posts/create">New Post</a></li>
+                            <li><a name="catagories" class="dropdown-item" href="/logout">Logout</a></li>
+                    </div>
                     @else
                     <a href="/register" class="text-xs mr-5 text-xl font-bold uppercase">Register</a>
                     <a href="/login" class="text-xs mr-5 text-xl font-bold uppercase">Login</a>
@@ -74,7 +78,7 @@
 	<div id="mce-responses" class="clear foot">
 		<div class="response" id="mce-error-response" style="display:none"></div>
 		<div class="response" id="mce-success-response" style="display:none"></div>
-	</div>    <!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->
+	</div>    real people should not fill this in and expect good things - do not remove this or risk form bot signups-->
     <!-- <div style="position: absolute; left: -5000px;" aria-hidden="true"><input type="text" name="b_3d40563aa0d62871eb2fa7e8d_398c6d4ccb" tabindex="-1" value=""></div>
         <div class="optionalParent">
             <div class="clear foot">
@@ -89,9 +93,8 @@
 <!--End mc_embed_signup -->
 
 
+ 
 
-
-{!! $okay->links() !!}
 
         <footer id="newsletter" class="bg-gray-100 border border-black border-opacity-5 rounded-xl text-center py-16 px-10 mt-16">
             <img src="./images/lary-newsletter-icon.svg" alt="" class="mx-auto -mb-5" style="width: 145px;">
