@@ -88,6 +88,12 @@ Route::post('/okay/{okay:Slug}/comments' , [PostCommentsController::class , 'sto
 
 Route::get('/admin/posts/create' , [PostController::class , 'create'])->middleware('admin');
 
+Route::get('/admin/posts/{okay}/edit' , [AdminController::class , 'edit'])->middleware('admin');
+
+Route::delete('/admin/posts/{okay}' , [AdminController::class , 'destroy'])->middleware('admin');
+
+Route::patch('/admin/posts/{okay}' , [AdminController::class , 'update'])->middleware('admin');
+
 Route::post('/admin/posts' , [PostController::class , 'store'])->middleware('admin');
 
 Route::get('/admin/posts' , [AdminController::class , 'index'])->middleware('admin');

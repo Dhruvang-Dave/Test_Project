@@ -31,10 +31,12 @@
                     <button class="mr-5 btn dropdown-toggle" name="category" type="button" id="dropdown" data-bs-toggle="dropdown" aria-expanded="false" href="/register" class="text-xs font-bold uppercase">Welcome {{ auth()->user()-> name }}</button>
                         </button>
                         <ul class="dropdown-menu" value="category" aria-labelledby="dropdown">
-                                        <li><a class="dropdown-item" href="#"></li>
-                            <li><a name="catagories" class="dropdown-item" href="/">Dashboard</a></li>
+                        @can('admin')
+                            <li><a name="catagories" class="dropdown-item" href="/admin/posts">Dashboard</a></li>
                             <li><a name="catagories" class="dropdown-item" href="/admin/posts/create">New Post</a></li>
+                        @endcan
                             <li><a name="catagories" class="dropdown-item" href="/logout">Logout</a></li>
+                            
                     </div>
                     @else
                     <a href="/register" class="text-xs mr-5 text-xl font-bold uppercase">Register</a>

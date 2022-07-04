@@ -55,7 +55,7 @@ class PostController extends Controller
         $attributes = request()->validate([
             'title' => 'required',
             'slug' =>  ['required' , Rule::unique('posts' , 'Slug')],
-            'thumbnail' => 'image',
+            'thumbnail' => 'required|image',
             // 'slug' =>  'required | unique:posts,Slug',
             'language' => 'required',
             'body' => 'required',
