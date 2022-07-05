@@ -20,6 +20,8 @@ return new class extends Migration
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
+            // $table->string('thumbnail')->default('illustration-1.png');
+            $table->string('profilePic')->default('lary-avatar.svg');
             $table->rememberToken();
             $table->timestamps();
         });

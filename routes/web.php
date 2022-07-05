@@ -11,6 +11,7 @@ use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\SessionsController;
 use App\Http\Controllers\PostCommentsController;
 use App\Http\Controllers\AdminController;
+use Illuminate\Pagination\LengthAwarePaginator;
 
 /*
 |--------------------------------------------------------------------------
@@ -62,13 +63,16 @@ Route::get('/about', 'App\Http\Controllers\NewController@about');
 
 Route::get('/okay/{okay:Slug}', [PostController::class , 'SinglePost']);
 
-Route::get('/catagories/{catagories:slug}', function(catagories $catagories){
-    // dd( $catagories->posts);
-    return view('/posts' , [
-        'okay' => $catagories->posts,
-        'catagories' => catagories::all()
-    ]);
-});
+// Route::get('/?catagories={catagories:slug}', function(catagories $catagories){
+//     //  dd( $catagories->posts());
+//     return view('/posts' , [
+//         'okay' => $catagories->posts()->paginate(),
+//         'catagories' => catagories::all(),
+//     ]);
+// });
+
+// localhost:8000/__clockwork
+// composer require itsgoingd/clockwork 
 
 Route::get('/welcome', function(){
     return view('welcome');

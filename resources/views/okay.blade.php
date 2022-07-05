@@ -57,7 +57,7 @@
                 </div>
 
                 <section class="col-span-8 col-start-5 space-y-6">
-                
+
                 @include('components._add-comment-form')
 
                    @foreach ( $okay->comments as $comment)

@@ -18,7 +18,7 @@
   <tbody>
     @foreach ( $okay as $ok )
         <tr>
-          <th scope="row">1</th>
+          <th scope="row">{{ $ok->id }}</th>
           <td><a class="no-underline text-black" href="/okay/{{ $ok->Slug }}">{!! $ok->title !!}</a></td>
           <td><span class="bg-green-200 rounded-xl px-3">Published</span></td>
           <td><a class="no-underline" href="/admin/posts/{{ $ok->id }}/edit">Edit</a></td>

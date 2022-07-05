@@ -1,8 +1,9 @@
 @auth
                 <form action="/okay/{{ $okay->Slug }}/comments" method="post" class="border border-gray-300 p-6 rounded-xl">
                     @csrf
+
                     <header class="flex items-center">
-                        <img src="/storage/{{ $okay->thumbnail }}" alt="" class="m-2 rounded-full" width="50" height="50">
+                        <img src="/storage/{{ auth()->user()->profilePic }}" alt="" class="m-2 rounded-xl" width="50" height="50">
  
 
                         <h4 class="ml-5"> Want to participate? </h4>

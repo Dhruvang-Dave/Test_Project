@@ -25,7 +25,7 @@ class PostController extends Controller
 
         return view('/posts', [
             // $okay = Post::all(),
-            'okay' => Post::latest()->filter(request(['search' , 'author'  ]))->paginate(6)->withQueryString(),
+            'okay' => Post::latest()->filter(request(['search' , 'catagories' , 'author'  ]))->paginate(6)->withQueryString(),
             'catagories' => catagories::all()
         ]);
     }
@@ -46,6 +46,7 @@ class PostController extends Controller
 
     public function store(){
 
+        @dd(request());
         // $thumbnailPath = request()->file('thumbnail')->store('',  'thumbnail');
         // dd(request()->file('thumbnail'));
         // $attributes = Storage::disk('thumbnail')->store(request()->file('thumbnail'));

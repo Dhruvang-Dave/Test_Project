@@ -5,6 +5,8 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Http\Request;
+use App\Models\catagories;
+
 // use App\Models\Comment;
 
 class Post extends Model
@@ -34,27 +36,24 @@ class Post extends Model
 
     public function scopeFilter($query, array $filters){
 
-        $query->when($filters['search'] ?? false, function($query , $search){
+        $query->when($filters['search'] ?? false, fn($query , $search)=>
             
             $query->where('title' ,'like' , '%' . $search . '%')
-                    ->orWhere('language' ,'like' , '%' . $search . '%');
-        });
+                    ->orWhere('language' ,'like' , '%' . $search . '%'));
         
-        $query->when($filters['catagories'] ?? false, function($query , $catagories){
+        
+        $query->when($filters['catagories'] ?? false, fn($query , $catagories) =>
             
-            $query->whereAs('catagories' , function($query , $catagories){
-                $query->Where('slug' , $catagories);
+            $query->whereHas('catagories' , fn($query) =>
+                $query->Where('name' , $catagories)
 
-            });
-        });
+            ));
 
-        $query->when($filters['author'] ?? false, function($query , $author){
+        $query->when($filters['author'] ?? false, fn($query , $author) =>
             
-            $query->whereAs('author' , function($query , $catagories){
-                $query->Where('username' , $author);
-
-            });
-        });
+            $query->whereAs('author' , fn($query) =>
+                $query->Where('username' , $author)
+            ));
 
     }
 

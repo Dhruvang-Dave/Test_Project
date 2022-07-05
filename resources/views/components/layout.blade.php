@@ -95,8 +95,6 @@
 <!--End mc_embed_signup -->
 
 
- 
-
 
         <footer id="newsletter" class="bg-gray-100 border border-black border-opacity-5 rounded-xl text-center py-16 px-10 mt-16">
             <img src="./images/lary-newsletter-icon.svg" alt="" class="mx-auto -mb-5" style="width: 145px;">

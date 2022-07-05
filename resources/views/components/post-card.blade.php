@@ -31,12 +31,12 @@
 
                     <div class="text-sm mt-4">
                         <p>
-                            {!! $okay->Slug!!}
+                            Slug :- {!! $okay->Slug!!}
                         </p>
 
-                        <p class="mt-4">
+                        <!-- <p class="mt-4">
                             Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
-                        </p>
+                        </p> -->
                     </div>
 
                     <footer class="flex justify-between items-center mt-8">
@@ -45,8 +45,8 @@
                             <div class="ml-3">
                                 <a href="/?authors={!! $okay->author->username !!}">
                                 <h5 class="font-bold">
-                                {!! $okay->author->name !!}</h5></a>
-                            <h6>language :- {{$okay->language}}</h6>
+                                Author:- {!! $okay->author->name !!}</h5></a>
+                                <h6>language :- {{$okay->language}}</h6>
                             </div>
                         </div>
                     </footer>
