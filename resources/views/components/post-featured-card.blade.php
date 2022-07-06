@@ -10,15 +10,15 @@
             <div class="flex-1 flex flex-col justify-between">
                 <header class="mt-8 lg:mt-0">
                     <div class="space-x-2">
-                        <a href="/?catagories={!! $okay->catagories->slug !!}"
+                        <a href="/?catagories={!! $okay->catagories->name !!}"
                            class="px-3 py-1 border border-blue-300 rounded-full text-blue-300 text-xs uppercase font-semibold"
-                           style="font-size: 10px">{!! $okay->catagories->name!!}</a>
+                           style="font-size: 10px">{!! $okay->catagories->name !!}</a>
                     </div>
 
                     <div class="mt-4">
                         <h1 class="text-3xl">
                             <a href="/okay/{!! $okay->Slug !!}">
-                            {!! $okay->title !!}
+                            Title:- {!! $okay->title !!}
                             </a>
                         </h1>
 
@@ -29,19 +29,16 @@
                     </div>
                 </header>
 
-                <div class="text-sm mt-2">
+                <div>
                     <p>
-                        {!! $okay->Slug!!}
+                       Slug:-{!! $okay->Slug!!}
                     </p>
-
-                    
-                </div>
 
                 <footer class="flex justify-between items-center mt-8">
                     <div class="flex items-center text-sm">
                     <img src="https://i.pravatar.cc/150?u={{$okay->catagories}}" alt="Lary avatar" height="60px" width="60px">
                         <div class="ml-3">
-                            <a name="author" href="/?authors={!! $okay->author->username !!}">
+                            <a name="author" href="/?author={!! $okay->author->username !!}">
                             <h5 class="font-bold">
                             {!! $okay->author->name !!}</h5></a>
                             <h6>language :- {{$okay->language}}</h6>

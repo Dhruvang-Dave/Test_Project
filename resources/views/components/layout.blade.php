@@ -2,7 +2,7 @@
 
 <!doctype html>
 
-<title>Laravel From Scratch Blog</title>
+<title>Digital Advertisment</title>
 <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
 <link rel="preconnect" href="https://fonts.gstatic.com">
 <!-- CSS only -->
@@ -21,12 +21,15 @@
         <nav class="md:flex md:justify-between md:items-center">
             <div>
                 <a href="/">
-                    <img src="./images/logo.svg" alt="Laracasts Logo" width="165" height="16">
+                    <img src="/images/digital.png" alt="Digital Logo" width="100" height="16">
                 </a>
             </div>
 
             <div class="mt-8 md:mt-0 flex items-center">
                 @auth
+                    <div class="flex">
+                    <img src="/storage/{{ auth()->user()->profilePic }}" alt="Profile Picture" width="50px" class="rounded-2xl">
+                    </div>
                     <div class="dropdown relative flex lg:inline-flex items-center rounded-xl">
                     <button class="mr-5 btn dropdown-toggle" name="category" type="button" id="dropdown" data-bs-toggle="dropdown" aria-expanded="false" href="/register" class="text-xs font-bold uppercase">Welcome {{ auth()->user()-> name }}</button>
                         </button>
@@ -97,7 +100,7 @@
 
 
         <footer id="newsletter" class="bg-gray-100 border border-black border-opacity-5 rounded-xl text-center py-16 px-10 mt-16">
-            <img src="./images/lary-newsletter-icon.svg" alt="" class="mx-auto -mb-5" style="width: 145px;">
+            <img src="/images/lary-newsletter-icon.svg" alt="" class="mx-auto -mb-5" style="width: 145px;">
             <h5 class="text-3xl"> Stay in touch with the latest posts</h5>
             <p class="text-sm mt-3"> Promise to keep the inbox clean. No bugs.</p>
 
@@ -131,9 +134,5 @@
             </div>
         </footer>
     </section>
-
 <x-flash />
-
 </body>
-
-

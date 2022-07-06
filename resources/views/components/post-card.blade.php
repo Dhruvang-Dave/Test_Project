@@ -11,7 +11,7 @@
                 <div class="mt-8 flex flex-col justify-between">
                     <header>
                         <div class="space-x-2">
-                            <a href="/catagories/{!! $okay->catagories->slug !!}"
+                            <a href="/?catagories={!! $okay->catagories->name !!}"
                                class="px-3 py-1 border border-blue-300 rounded-full text-blue-300 text-xs uppercase font-semibold"
                                style="font-size: 10px">{!! $okay->catagories->name!!}</a>
                         </div>
@@ -29,7 +29,7 @@
                         </div>
                     </header>
 
-                    <div class="text-sm mt-4">
+                    <div class="mt-4">
                         <p>
                             Slug :- {!! $okay->Slug!!}
                         </p>
@@ -43,7 +43,7 @@
                         <div class="flex items-center text-sm">
                             <img src="https://i.pravatar.cc/150?u={{$okay->catagories}}" alt="Lary avatar" height="60px" width="60px">
                             <div class="ml-3">
-                                <a href="/?authors={!! $okay->author->username !!}">
+                                <a href="/?author={!! $okay->author->username !!}">
                                 <h5 class="font-bold">
                                 Author:- {!! $okay->author->name !!}</h5></a>
                                 <h6>language :- {{$okay->language}}</h6>

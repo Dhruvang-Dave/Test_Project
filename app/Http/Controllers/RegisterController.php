@@ -24,9 +24,9 @@ class RegisterController extends Controller
 
         if( request()->profilePic ){
             $profilePicPath = request()->file('profilePic')->store('profilePic');
+            $attributes['profilePic'] = $profilePicPath;  
         }
 
-        $attributes['profilePic'] = $profilePicPath;  
 
         // $attribute['password'] = bcrypt($attribute['password']);
 

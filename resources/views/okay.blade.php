@@ -7,7 +7,7 @@
         <main class="max-w-6xl mx-auto mt-10 lg:mt-20 space-y-2">
             <article class="max-w-4xl mx-auto p-5 lg:grid lg:grid-cols-12 gap-x-10 hover:bg-gray-50 hover:border rounded-xl hover:border-gray-300">
                 <div class="col-span-4 lg:text-center lg:pt-14 mb-10">
-                    <img src="/storage/{{ $okay->thumbnail }}" alt="" class="rounded-xl h-75 w-150">
+                    <img src="/storage/{{ $okay->thumbnail }}" alt="" class="rounded-xl" height="250px" width="400px">
 
                     <p class="mt-4 block text-gray-400 text-xs">
                         Published <time>{!! $okay->created_at->diffForHumans() !!}</time>
@@ -51,8 +51,12 @@
                         {!! $okay->title !!}
                     </h1>
 
-                    <div class="space-y-4 lg:text-lg leading-loose">
-                        {!! $okay-> body!!}
+                    <p class="space-y-4 lg:text-lg leading-loose pb-2">
+                       Slug:-{!! $okay->Slug !!}
+                    </p>
+
+                    <div class="space-y-4 lg:text-lg leading-loose pb-5">
+                        Body:- {!! $okay-> body!!}
                     </div>
                 </div>
 
