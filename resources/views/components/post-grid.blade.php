@@ -1,4 +1,4 @@
-@props(['okay'])
+
 
 <x-post-featured-card :okay="$okay[0]" />
 

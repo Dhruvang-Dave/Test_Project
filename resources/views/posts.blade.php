@@ -48,9 +48,8 @@
     @include('components._post-header')
 
 <main class="max-w-6xl mx-auto mt-6 lg:mt-20 space-y-6">
-    
-    
-    @if ( $okay->count())
+
+    @if ( $okay->count() )
         <x-post-grid :okay="$okay"/>
         
     @else
@@ -63,4 +62,3 @@
     
 </main>    
 @endsection
-

@@ -4,7 +4,7 @@
 
     <section class="px-6 py-8">
         
-        <main class="mt-10 max-w-3xl mx-auto bg-gray-100 border border-gray-200 rounded-xl p-10">
+        <main class="mt-10 max-w-2xl mx-auto bg-gray-100 border border-gray-200 rounded-xl p-10">
               
           <form action="/register" method="POST" enctype="multipart/form-data">
               @csrf

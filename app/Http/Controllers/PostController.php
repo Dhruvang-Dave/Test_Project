@@ -23,9 +23,19 @@ class PostController extends Controller
 
     public function main_page() {
 
+        /*
+        $posts = Post::with('catagories', function($q){
+                $q->where('name', '');
+        })
+        dd(Post::latest()
+        ->filter(request(['search' , 'catagories' , 'author']))
+        ->get()
+        );
+*/
         return view('/posts', [
             // $okay = Post::all(),
-            'okay' => Post::latest()->filter(request(['search' , 'catagories' , 'author']))->paginate(6)->withQueryString(),
+            // @dd(auth()->guest()),
+            'okay' => Post::latest()->filter(request(['search' , 'catagories' , 'author']))->simplePaginate(6), // ->withQueryString(),
             'catagories' => catagories::all()
         ]);
     }
@@ -45,8 +55,7 @@ class PostController extends Controller
     }
 
     public function store(){
-
-        @dd(request());
+        
         // $thumbnailPath = request()->file('thumbnail')->store('',  'thumbnail');
         // dd(request()->file('thumbnail'));
         // $attributes = Storage::disk('thumbnail')->store(request()->file('thumbnail'));

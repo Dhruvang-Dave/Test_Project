@@ -28,7 +28,7 @@
             <div class="mt-8 md:mt-0 flex items-center">
                 @auth
                     <div class="flex">
-                    <img src="/storage/{{ auth()->user()->profilePic }}" alt="Profile Picture" width="50px" class="rounded-2xl">
+                    <img src="/storage/{{ auth()->user()->profilePic }}" alt="Profile Picture" width="80px" class="rounded-2xl">
                     </div>
                     <div class="dropdown relative flex lg:inline-flex items-center rounded-xl">
                     <button class="mr-5 btn dropdown-toggle" name="category" type="button" id="dropdown" data-bs-toggle="dropdown" aria-expanded="false" href="/register" class="text-xs font-bold uppercase">Welcome {{ auth()->user()-> name }}</button>

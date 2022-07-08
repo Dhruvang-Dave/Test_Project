@@ -100,4 +100,4 @@ Route::patch('/admin/posts/{okay}' , [AdminController::class , 'update'])->middl
 
 Route::post('/admin/posts' , [PostController::class , 'store'])->middleware('admin');
 
-Route::get('/admin/posts' , [AdminController::class , 'index'])->middleware('admin');
+Route::get('/admin/posts' , [AdminController::class , 'index'])->middleware('admin'); 

@@ -36,16 +36,16 @@ class Post extends Model
 
     public function scopeFilter($query, array $filters){
 
-        $query->when($filters['search'] ?? false, fn($query , $search)=>
-            
-            $query->where('title' ,'like' , '%' . $search . '%')
-                    ->orWhere('language' ,'like' , '%' . $search . '%'));
-        
+        $query->when($filters['search'] ?? false, fn($query , $search) =>
+            $query->where(fn($q) => 
+                $q->where('title' ,'like' , '%' . $search . '%')
+                ->orWhere('language' ,'like' , '%' . $search . '%')
+            ));
         
         $query->when($filters['catagories'] ?? false, fn($query , $catagories) =>
             
             $query->whereHas('catagories' , fn($query) =>
-                $query->Where('name' , $catagories)
+                $query->where('name' , $catagories)
 
             ));
 
@@ -61,6 +61,4 @@ class Post extends Model
     //     return Slug;   // return parent::getRouteKeyName();  
     // }
 }
-
-
 // $ composer require itsgoingd/clockwork

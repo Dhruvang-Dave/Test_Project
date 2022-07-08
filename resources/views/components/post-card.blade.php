@@ -31,7 +31,7 @@
 
                     <div class="mt-4">
                         <p>
-                            Slug :- {!! $okay->Slug!!}
+                            {!! $okay->Slug!!}
                         </p>
 
                         <!-- <p class="mt-4">
@@ -45,7 +45,7 @@
                             <div class="ml-3">
                                 <a href="/?author={!! $okay->author->username !!}">
                                 <h5 class="font-bold">
-                                Author:- {!! $okay->author->name !!}</h5></a>
+                                {!! $okay->author->name !!}</h5></a>
                                 <h6>language :- {{$okay->language}}</h6>
                             </div>
                         </div>
